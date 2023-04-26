@@ -17,9 +17,6 @@ class Spaceship extends Phaser.GameObjects.Sprite {
         if(this.x <= 0 - this.width) {
             this.x = game.config.width; 
         }
-
-        // speed increase
-        
     }
 
     // position reset 

@@ -113,6 +113,16 @@ class Play extends Phaser.Scene {
         }
         this.fireText = this.add.text((game.config.width / 2) - 30, borderUISize + borderPadding * 2, 'FIRE', fireConfig);
         this.fireText.visible = false;
+
+        // spaceship speed increase
+        this.faster = this.time.delayedCall(game.settings.gameTimer / 2, () => {
+            console.log("speed"); 
+            //console.log(this.ship01.moveSpeed);
+            this.ship01.moveSpeed *= 2;
+            this.ship02.moveSpeed *= 2;
+            this.ship03.moveSpeed *= 2; 
+            //console.log(this.ship01.moveSpeed);
+        }, null, this);
     }
 
     update() {
@@ -150,11 +160,13 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship01);
         }
 
+        // make 'fire' visible/invisible
         if (this.p1Rocket.isFiring) {
             this.fireText.visible = true; 
         } else {
             this.fireText.visible = false; 
         }
+
     }
 
     checkCollision(rocket, ship) {
