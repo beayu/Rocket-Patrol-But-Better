@@ -7,6 +7,7 @@ mods:
     Implement the 'FIRE' UI text from the original game (5)
     Implement the speed increase that happens after 30 seconds in the original game (5)
     Allow the player to control the Rocket after it's fired (5)
+    Create 4 new explosion sound effects and randomize which one plays on impact (10)
     Display the time remaining (in seconds) on the screen (10)
 */
 
