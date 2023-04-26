@@ -4,6 +4,7 @@ Rocket Patrol but better
 approximate time to completion
 mods: 
     Track a high score that persists across scenes and display it in the UI (5)
+    Implement the 'FIRE' UI text from the original game (5)
     Implement the speed increase that happens after 30 seconds in the original game (5)
     Display the time remaining (in seconds) on the screen (10)
 */

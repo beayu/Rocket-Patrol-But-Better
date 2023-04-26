@@ -98,7 +98,7 @@ class Play extends Phaser.Scene {
         }
         this.timeRemaining = this.add.text(game.config.width - (borderUISize + borderPadding + 38), game.config.height - (borderUISize + borderPadding + 38), Math.floor(this.clock.getRemainingSeconds()), timerConfig);
  
-        /*// 'fire' UI text
+        // 'fire' UI text
         let fireConfig = {
             fontFamily: 'Courier', 
             fontSize: '28px', 
@@ -110,10 +110,9 @@ class Play extends Phaser.Scene {
                 bottom: 5, 
             },
             fixedWidth: 0, 
-            alpha: 0
         }
-        let fireText = this.add.text((game.config.width / 2) - 30, borderUISize + borderPadding * 2, 'FIRE', fireConfig);
-        */
+        this.fireText = this.add.text((game.config.width / 2) - 30, borderUISize + borderPadding * 2, 'FIRE', fireConfig);
+        this.fireText.visible = false;
     }
 
     update() {
@@ -151,7 +150,11 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship01);
         }
 
-        
+        if (this.p1Rocket.isFiring) {
+            this.fireText.visible = true; 
+        } else {
+            this.fireText.visible = false; 
+        }
     }
 
     checkCollision(rocket, ship) {
