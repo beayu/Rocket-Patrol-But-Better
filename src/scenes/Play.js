@@ -116,7 +116,6 @@ class Play extends Phaser.Scene {
 
         // spaceship speed increase
         this.faster = this.time.delayedCall(game.settings.gameTimer / 2, () => {
-            console.log("speed"); 
             //console.log(this.ship01.moveSpeed);
             this.ship01.moveSpeed *= 2;
             this.ship02.moveSpeed *= 2;
