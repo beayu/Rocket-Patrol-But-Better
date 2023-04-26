@@ -67,22 +67,6 @@ class Play extends Phaser.Scene {
         // display high score
         this.scoreRight = this.add.text(game.config.width - (borderUISize + borderPadding + 100), borderUISize + borderPadding * 2, highScore, scoreConfig);
 
-        // display timer
-        let timerConfig = {
-            fontFamily: 'Courier', 
-            fontSize: '28px', 
-            backgroundColor: '#F3B141', 
-            color: '#843605', 
-            align: 'right', 
-            padding: {
-                top: 5, 
-                bottom: 5, 
-            },
-            fixedWidth: 100
-        }
-        this.timeLeft = this.add.text(borderUISize + borderPadding * 40, borderUISize + borderPadding * 30, this.clock, timerConfig);
-
-
         // GAME OVER flag 
         this.gameOver = false; 
 
@@ -99,6 +83,37 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (R) to Restart or ← for Menu', scoreConfig).setOrigin(0.5); 
             this.gameOver = true;  
         }, null, this);
+
+        // display timer
+        let timerConfig = {
+            fontFamily: 'Courier', 
+            fontSize: '28px', 
+            color: '#F3B141', 
+            align: 'right', 
+            padding: {
+                top: 5, 
+                bottom: 5, 
+            },
+            fixedWidth: 0
+        }
+        this.timeRemaining = this.add.text(game.config.width - (borderUISize + borderPadding + 38), game.config.height - (borderUISize + borderPadding + 38), Math.floor(this.clock.getRemainingSeconds()), timerConfig);
+ 
+        /*// 'fire' UI text
+        let fireConfig = {
+            fontFamily: 'Courier', 
+            fontSize: '28px', 
+            backgroundColor: '#F3B141', 
+            color: '#843605', 
+            align: 'right', 
+            padding: {
+                top: 5, 
+                bottom: 5, 
+            },
+            fixedWidth: 0, 
+            alpha: 0
+        }
+        let fireText = this.add.text((game.config.width / 2) - 30, borderUISize + borderPadding * 2, 'FIRE', fireConfig);
+        */
     }
 
     update() {
@@ -117,6 +132,9 @@ class Play extends Phaser.Scene {
             this.ship01.update();           // update spaceships (x3)
             this.ship02.update(); 
             this.ship03.update(); 
+
+            // update timer
+            this.timeRemaining.text = Math.floor(this.clock.getRemainingSeconds()); 
         }
 
         // check collisions 
@@ -132,6 +150,8 @@ class Play extends Phaser.Scene {
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
         }
+
+        
     }
 
     checkCollision(rocket, ship) {
