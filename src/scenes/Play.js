@@ -48,7 +48,6 @@ class Play extends Phaser.Scene {
 
         // initialize score
         this.p1Score = 0; 
-        highScore = 0; 
 
         // display score
         let scoreConfig = {
@@ -65,15 +64,40 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig);
 
+        // display high score
+        this.scoreRight = this.add.text(game.config.width - (borderUISize + borderPadding + 100), borderUISize + borderPadding * 2, highScore, scoreConfig);
+
+        // display timer
+        let timerConfig = {
+            fontFamily: 'Courier', 
+            fontSize: '28px', 
+            backgroundColor: '#F3B141', 
+            color: '#843605', 
+            align: 'right', 
+            padding: {
+                top: 5, 
+                bottom: 5, 
+            },
+            fixedWidth: 100
+        }
+        this.timeLeft = this.add.text(borderUISize + borderPadding * 40, borderUISize + borderPadding * 30, this.clock, timerConfig);
+
+
         // GAME OVER flag 
         this.gameOver = false; 
 
         // 60-second play clock 
         scoreConfig.fixedWidth = 0; 
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
+
+            if (this.p1Score > highScore) {
+                highScore = this.p1Score;
+            }
+            this.scoreRight.text = highScore; 
+
             this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER', scoreConfig).setOrigin(0.5); 
             this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (R) to Restart or ← for Menu', scoreConfig).setOrigin(0.5); 
-            this.gameOver = true; 
+            this.gameOver = true;  
         }, null, this);
     }
 
