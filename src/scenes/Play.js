@@ -111,7 +111,7 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 0, 
         }
-        this.fireText = this.add.text((game.config.width / 2) - 30, borderUISize + borderPadding * 2, 'FIRE', fireConfig);
+        this.fireText = this.add.text(game.config.width / 2, borderUISize + borderPadding * 2, 'FIRE', fireConfig).setOrigin(0.5, 0);
         this.fireText.visible = false;
 
         // spaceship speed increase
@@ -190,8 +190,9 @@ class Play extends Phaser.Scene {
         });
         // score add and repaint
         this.p1Score += ship.points; 
-        this.scoreLeft.text = this.p1Score;
+        this.scoreLeft.text = this.p1Score; 
 
+        //randomize explosion sounds
         let randomExplosion = ['sfx_explosion1', 'sfx_explosion3', 'sfx_explosion4', 'sfx_explosion5'];
         this.sound.play(randomExplosion[Math.floor(Math.random() * randomExplosion.length)]); 
     }
