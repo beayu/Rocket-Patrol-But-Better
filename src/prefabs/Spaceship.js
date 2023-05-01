@@ -47,8 +47,5 @@ class Spaceship extends Phaser.GameObjects.Sprite {
             this.flipX = false; 
             this.x = game.config.width;
         }
-
-        console.log(this.flipX); 
-        console.log(this.x); 
     }
 }
