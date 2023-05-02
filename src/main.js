@@ -1,7 +1,7 @@
 /*
 Beatrice Yu 
 Rocket Patrol but better
-approximate time to completion: 7
+approximate time to completion: 10
 mods: 
     Track a high score that persists across scenes and display it in the UI (5)
     Implement the 'FIRE' UI text from the original game (5)
@@ -12,12 +12,14 @@ mods:
     Allow the player to control the Rocket after it's fired (5)
     Create 4 new explosion sound effects and randomize which one plays on impact (10)
     Display the time remaining (in seconds) on the screen (10)
-        Using a texture atlas, create a new animated sprite for the Spaceship enemies (10)
+    Using a texture atlas, create a new animated sprite for the Spaceship enemies (10)
         Create a new title screen (e.g., new artwork, typography, layout) (10)
     Implement parallax scrolling for the background (10)
-        - planet in the foreground and stars move slower than background
-        Create a new enemy Spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (15)
+        - ringed planet moves fastest, then small planets, then big planet, then stars, then background
+    Create a new enemy Spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (15)
+        - asteroid is smaller and worth 40 ponts
 citations: 
+    artwork created by Luis Zuno (@ansimuz)
     Cromwell De Guzman
 */
 
