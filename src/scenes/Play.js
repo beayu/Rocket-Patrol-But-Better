@@ -26,6 +26,9 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+        this.bgm = this.sound.add('bgm'); 
+        this.bgm.play(); 
+
         // tile sprite background 
         //this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0); 
         // this.space = this.add.tileSprite(0, 0, 640, 480, 'space').setOrigin(0, 0).setScale(2.8); 
@@ -33,7 +36,7 @@ class Play extends Phaser.Scene {
         // this.planet = this.add.tileSprite(0, 300, 640, 480, 'planet').setOrigin(0, 0); 
         this.space = this.add.tileSprite(0, 0, 640, 480, 'space').setOrigin(0, 0).setScale(2.8); 
         this.stars = this.add.tileSprite(0, 0, 640, 480, 'stars').setOrigin(0, 0).setScale(2); 
-        this.planet = this.add.sprite(320, 160, 'planet').setOrigin(0, 0).setScale(2); 
+        this.planet = this.add.sprite(400, 160, 'planet').setOrigin(0, 0).setScale(2); 
         this.planets = this.add.sprite(0, 100, 'planets').setOrigin(0, 0).setScale(2); 
         this.ring = this.add.sprite(50, 210, 'ring').setOrigin(0, 0).setScale(2); 
 
@@ -134,6 +137,8 @@ class Play extends Phaser.Scene {
         scoreConfig.fixedWidth = 0; 
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
 
+            this.bgm.stop(); 
+
             if (this.p1Score > highScore) {
                 highScore = this.p1Score;
             }
@@ -205,10 +210,10 @@ class Play extends Phaser.Scene {
         this.planets.x -= 1.3;
         this.ring.x -= 1.5;
 
-        if (this.planet.x <= 0 - this.planet.width) {
+        if (this.planet.x <= 0 - this.planet.width * 2) {
             this.planet.x = game.config.width; 
         }
-        if (this.planets.x <= 0 - this.planets.width) {
+        if (this.planets.x <= 0 - this.planets.width * 2) {
             this.planets.x = game.config.width; 
         }
         if (this.ring.x <= 0 - this.ring.width) {

@@ -17,7 +17,7 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav'); 
 
         // load bgm 
-        this.load.audio('bgm', './assets/');
+        this.load.audio('bgm', './assets/Alex-Productions - Aggressive Computer Gaming _ Enigma.mp3');
     }
 
     create() {
@@ -39,7 +39,7 @@ class Menu extends Phaser.Scene {
         }
 
         // show menu text
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5); 
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'ROCKET PATROL: THE RED PLANET', menuConfig).setOrigin(0.5); 
         this.add.text(game.config.width / 2, game.config.height / 2, 'Use ←→ arrows to move & (F) to fire', menuConfig).setOrigin(0.5); 
         menuConfig.backgroundColor = '#00FF00';
         menuConfig.color = '#000';
