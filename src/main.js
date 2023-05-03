@@ -13,6 +13,7 @@ mods:
     Create 4 new explosion sound effects and randomize which one plays on impact (10)
     Display the time remaining (in seconds) on the screen (10)
     Using a texture atlas, create a new animated sprite for the Spaceship enemies (10)
+        - I didn't use all of the sprites in the texture atlas I made
     Create a new title screen (e.g., new artwork, typography, layout) (10)
         - amanda's pink 0xffc1cc
         - mauve 4f2b37
@@ -24,11 +25,11 @@ mods:
     Implement parallax scrolling for the background (10)
         - ringed planet moves fastest, then small planets, then big planet, then stars, then background
     Create a new enemy Spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (15)
-        - asteroid is smaller and worth 40 ponts
+        - asteroid at the top is smaller and worth 40 ponts
 citations: 
     artwork created by Luis Zuno (@ansimuz)
     background music created by Alex-Productions
-    Cromwell De Guzman
+    Cromwell De Guzman - spaceship movement direction
     Thanyared Wong - pink page color
 */
 
